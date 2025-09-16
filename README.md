@@ -1,6 +1,5 @@
-# 🎨 GitHub Pages Portfolio Generator
+# 🎨 Taxmidd Portfolio 
 
-A complete, production-ready, beginner-friendly portfolio website that can be deployed directly to GitHub Pages. Fully customizable via a single config file with no coding required!
 
 ## ✨ Features
 
