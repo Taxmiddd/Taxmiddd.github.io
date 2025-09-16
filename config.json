@@ -57,7 +57,7 @@
   "layoutSettings": {
     "navStyle": "sticky",
     "showSections": {
-      "hero": true,
+      "hero": false,
       "about": true,
       "projects": true,
       "currentProject": true,
