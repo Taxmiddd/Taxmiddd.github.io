@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual domain)
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Optimize crawling
+Crawl-delay: 1
+
+# Block sensitive files
+Disallow: /assets/files/
+Disallow: /.git/
+Disallow: /node_modules/

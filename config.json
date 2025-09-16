@@ -1,0 +1,388 @@
+{
+  "siteMeta": {
+    "siteTitle": "Your Name — Portfolio",
+    "tagline": "Creative developer crafting elegant digital experiences",
+    "author": "Your Name",
+    "description": "Portfolio website showcasing web development projects, design work, and creative solutions.",
+    "email": "you@example.com",
+    "repo": "https://github.com/USERNAME/REPO",
+    "social": {
+      "github": "https://github.com/USERNAME",
+      "linkedin": "",
+      "twitter": "",
+      "instagram": "",
+      "dribbble": "",
+      "behance": ""
+    }
+  },
+  "theme": {
+    "activeTheme": "default",
+    "themes": {
+      "default": {
+        "primary": "#0f172a",
+        "secondary": "#7c3aed",
+        "accent": "#eab308",
+        "background": "#ffffff",
+        "surface": "#f8fafc",
+        "text": "#0f172a",
+        "textMuted": "#64748b",
+        "border": "#e2e8f0"
+      },
+      "midnight": {
+        "primary": "#0b1220",
+        "secondary": "#9b5cf6",
+        "accent": "#f59e0b",
+        "background": "#071024",
+        "surface": "#0f172a",
+        "text": "#e6eef8",
+        "textMuted": "#94a3b8",
+        "border": "#1e293b"
+      },
+      "warm": {
+        "primary": "#1f2937",
+        "secondary": "#dc2626",
+        "accent": "#f97316",
+        "background": "#fefefe",
+        "surface": "#f9fafb",
+        "text": "#111827",
+        "textMuted": "#6b7280",
+        "border": "#d1d5db"
+      }
+    },
+    "fontHeading": "Playfair Display",
+    "fontBody": "Inter",
+    "borderRadius": "12px",
+    "shadowLevel": "soft"
+  },
+  "layoutSettings": {
+    "navStyle": "sticky",
+    "showSections": {
+      "hero": true,
+      "about": true,
+      "projects": true,
+      "currentProject": true,
+      "media": true,
+      "services": true,
+      "pricing": true,
+      "testimonials": false,
+      "contact": true,
+      "footer": true
+    },
+    "sectionsOrder": [
+      "hero",
+      "about",
+      "projects",
+      "currentProject",
+      "media",
+      "services",
+      "pricing",
+      "contact",
+      "footer"
+    ]
+  },
+  "hero": {
+    "title": "Hi — I'm Your Name",
+    "subtitle": "Designing elegant web experiences • Creative developer & student",
+    "backgroundType": "gradient",
+    "backgroundImage": "assets/images/hero-bg.webp",
+    "backgroundGradient": "linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)",
+    "cta": [
+      {
+        "text": "View Projects",
+        "link": "#projects",
+        "style": "primary"
+      },
+      {
+        "text": "Get in Touch",
+        "link": "#contact",
+        "style": "secondary"
+      }
+    ]
+  },
+  "about": {
+    "bio": "I'm a passionate web developer and designer with a love for creating beautiful, functional digital experiences. Currently studying aerospace engineering while building modern web applications. I believe great design should be both visually stunning and highly usable.\n\nWhen I'm not coding, you can find me exploring new design trends, contributing to open source projects, or working on creative side projects that push the boundaries of what's possible on the web.",
+    "skills": [
+      {
+        "name": "HTML/CSS",
+        "level": "90"
+      },
+      {
+        "name": "JavaScript",
+        "level": "85"
+      },
+      {
+        "name": "React",
+        "level": "75"
+      },
+      {
+        "name": "Node.js",
+        "level": "70"
+      },
+      {
+        "name": "UI/UX Design",
+        "level": "80"
+      },
+      {
+        "name": "Python",
+        "level": "65"
+      }
+    ],
+    "education": [
+      {
+        "institution": "University Name",
+        "degree": "Bachelor of Aerospace Engineering",
+        "period": "2022 - Present",
+        "description": "Focusing on computational methods and design optimization"
+      }
+    ],
+    "experience": [
+      {
+        "company": "Freelance",
+        "role": "Web Developer",
+        "period": "2023 - Present",
+        "description": "Creating custom websites and web applications for local businesses and startups"
+      }
+    ],
+    "downloadCV": true,
+    "cvFile": "assets/files/cv.pdf"
+  },
+  "currentProject": {
+    "title": "Interactive Portfolio Builder",
+    "summary": "A drag-and-drop portfolio builder with real-time preview",
+    "description": "Currently developing an intuitive web application that allows users to create beautiful portfolio websites without coding. Features include real-time editing, multiple templates, and seamless deployment options.\n\nBuilt with modern web technologies including vanilla JavaScript, CSS Grid, and a component-based architecture. The project focuses on accessibility and performance while maintaining a delightful user experience.",
+    "images": [
+      "assets/images/projects/current-1.webp",
+      "assets/images/projects/current-2.webp"
+    ],
+    "status": "In Development",
+    "completion": "75",
+    "repo": "https://github.com/USERNAME/portfolio-builder",
+    "demo": "",
+    "technologies": ["HTML5", "CSS3", "Vanilla JS", "Web Components"],
+    "timeline": "Expected completion: Q1 2025"
+  },
+  "projects": [
+    {
+      "id": "elegant-landing",
+      "title": "Elegant Landing Page",
+      "summary": "A minimal, conversion-focused landing page template",
+      "description": "Designed and developed a clean, modern landing page template optimized for conversions. Features smooth animations, responsive design, and accessibility-first approach.\n\nBuilt with semantic HTML, CSS variables for easy theming, and vanilla JavaScript for interactions. The template includes multiple sections, contact forms, and is fully customizable through CSS custom properties.",
+      "images": [
+        "assets/images/projects/landing-1.webp",
+        "assets/images/projects/landing-2.webp"
+      ],
+      "tags": ["Web Design", "HTML", "CSS", "JavaScript"],
+      "repo": "https://github.com/USERNAME/elegant-landing",
+      "live": "https://username.github.io/elegant-landing",
+      "date": "2024-08-15",
+      "featured": true
+    },
+    {
+      "id": "photo-gallery",
+      "title": "Responsive Photo Gallery",
+      "summary": "A performance-optimized gallery with lazy loading and lightbox",
+      "description": "Built a high-performance photo gallery featuring lazy loading, responsive images with srcset, and a smooth lightbox experience. Supports keyboard navigation and is fully accessible.\n\nImplemented advanced features like image preloading, WebP format support, and smooth transitions. The gallery adapts to different screen sizes and provides an optimal viewing experience across all devices.",
+      "images": [
+        "assets/images/projects/gallery-1.webp",
+        "assets/images/projects/gallery-2.webp"
+      ],
+      "tags": ["Photography", "JavaScript", "Performance", "Accessibility"],
+      "repo": "https://github.com/USERNAME/photo-gallery",
+      "live": "",
+      "date": "2024-06-20",
+      "featured": true
+    },
+    {
+      "id": "task-manager",
+      "title": "Minimalist Task Manager",
+      "summary": "A clean, distraction-free productivity app",
+      "description": "Developed a minimalist task management application focused on simplicity and productivity. Features include drag-and-drop organization, keyboard shortcuts, and local storage persistence.\n\nThe app emphasizes clean design and smooth interactions while maintaining high performance. Built without frameworks to keep the bundle size minimal and loading times fast.",
+      "images": [
+        "assets/images/projects/tasks-1.webp"
+      ],
+      "tags": ["Productivity", "UI/UX", "Local Storage", "Drag & Drop"],
+      "repo": "https://github.com/USERNAME/task-manager",
+      "live": "https://username.github.io/task-manager",
+      "date": "2024-04-10",
+      "featured": false
+    }
+  ],
+  "media": {
+    "gallery": [
+      {
+        "id": "design-1",
+        "src": "assets/images/media/design-showcase-1.webp",
+        "srcset": {
+          "small": "assets/images/media/design-showcase-1-sm.webp",
+          "medium": "assets/images/media/design-showcase-1-md.webp",
+          "large": "assets/images/media/design-showcase-1-lg.webp"
+        },
+        "alt": "Modern web interface design with clean typography and subtle shadows",
+        "caption": "UI Design Exploration",
+        "category": "design"
+      },
+      {
+        "id": "code-1",
+        "src": "assets/images/media/code-setup-1.webp",
+        "srcset": {
+          "small": "assets/images/media/code-setup-1-sm.webp",
+          "medium": "assets/images/media/code-setup-1-md.webp",
+          "large": "assets/images/media/code-setup-1-lg.webp"
+        },
+        "alt": "Clean development workspace with multiple monitors and modern setup",
+        "caption": "Development Environment",
+        "category": "workspace"
+      },
+      {
+        "id": "project-1",
+        "src": "assets/images/media/project-preview-1.webp",
+        "srcset": {
+          "small": "assets/images/media/project-preview-1-sm.webp",
+          "medium": "assets/images/media/project-preview-1-md.webp",
+          "large": "assets/images/media/project-preview-1-lg.webp"
+        },
+        "alt": "Screenshot of a responsive web application running on multiple devices",
+        "caption": "Responsive Design in Action",
+        "category": "projects"
+      }
+    ]
+  },
+  "services": [
+    {
+      "id": "web-design",
+      "name": "Web Design",
+      "description": "Custom website design focused on user experience, modern aesthetics, and conversion optimization. Includes wireframing, prototyping, and responsive design.",
+      "features": [
+        "Custom UI/UX Design",
+        "Responsive Layouts",
+        "Brand Integration",
+        "Prototype Development"
+      ],
+      "price": "",
+      "notes": "Perfect for businesses looking to establish a strong online presence"
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "description": "Full-stack web development services including front-end implementation, backend integration, and performance optimization.",
+      "features": [
+        "Frontend Development",
+        "Backend Integration",
+        "Performance Optimization",
+        "Cross-browser Testing"
+      ],
+      "price": "",
+      "notes": "From simple landing pages to complex web applications"
+    },
+    {
+      "id": "consulting",
+      "name": "Technical Consulting",
+      "description": "Strategic guidance on web technologies, architecture decisions, and development best practices for your projects.",
+      "features": [
+        "Technology Assessment",
+        "Architecture Planning",
+        "Code Review",
+        "Performance Audit"
+      ],
+      "price": "",
+      "notes": "Ideal for teams looking to improve their development process"
+    }
+  ],
+  "pricing": [
+    {
+      "plan": "Starter",
+      "description": "Perfect for small projects and personal websites",
+      "features": [
+        "Custom Design",
+        "Responsive Layout",
+        "Basic SEO Setup",
+        "Contact Form",
+        "2 Revisions"
+      ],
+      "price": "",
+      "duration": "1-2 weeks",
+      "popular": false
+    },
+    {
+      "plan": "Professional",
+      "description": "Ideal for businesses and more complex projects",
+      "features": [
+        "Everything in Starter",
+        "Advanced Animations",
+        "CMS Integration",
+        "Performance Optimization",
+        "5 Revisions",
+        "1 Month Support"
+      ],
+      "price": "",
+      "duration": "2-4 weeks",
+      "popular": true
+    },
+    {
+      "plan": "Enterprise",
+      "description": "For large-scale projects with custom requirements",
+      "features": [
+        "Everything in Professional",
+        "Custom Functionality",
+        "API Integration",
+        "Advanced Analytics",
+        "Unlimited Revisions",
+        "3 Months Support"
+      ],
+      "price": "",
+      "duration": "4-8 weeks",
+      "popular": false
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "testimonial-1",
+      "name": "Sarah Johnson",
+      "role": "Marketing Director",
+      "company": "Tech Startup Inc.",
+      "content": "Working with [Your Name] was an absolute pleasure. They delivered a stunning website that perfectly captured our brand vision and significantly improved our conversion rates.",
+      "avatar": "assets/images/testimonials/sarah.webp",
+      "rating": 5
+    },
+    {
+      "id": "testimonial-2",
+      "name": "Michael Chen",
+      "role": "Founder",
+      "company": "Creative Agency",
+      "content": "The attention to detail and technical expertise shown throughout our project was exceptional. Our new website not only looks amazing but performs flawlessly across all devices.",
+      "avatar": "assets/images/testimonials/michael.webp",
+      "rating": 5
+    }
+  ],
+  "contact": {
+    "email": "you@example.com",
+    "phone": "",
+    "enableForm": true,
+    "formProvider": "formspree",
+    "formEndpoint": "REPLACE_WITH_FORM_ENDPOINT",
+    "showMailToLink": true,
+    "availability": "Available for new projects",
+    "responseTime": "Usually responds within 24 hours",
+    "preferredContact": "email"
+  },
+  "settings": {
+    "deployBranch": "main",
+    "docsFolder": false,
+    "openGraphImage": "assets/images/og-image.webp",
+    "favicon": "assets/images/favicon.ico",
+    "analytics": {
+      "enabled": false,
+      "provider": "none",
+      "trackingId": ""
+    },
+    "performance": {
+      "lazyLoading": true,
+      "webpSupport": true,
+      "minifyAssets": false
+    },
+    "seo": {
+      "generateSitemap": false,
+      "robotsTxt": true
+    }
+  }
+}
