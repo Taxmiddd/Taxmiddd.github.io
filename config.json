@@ -37,8 +37,8 @@
   "layoutSettings": {
     "navStyle": "sticky",
     "showSections": {
-      "hero": false,
-      "about": true,
+      "Intro": true,
+      "About Me": true,
       "projects": true,
       "currentProject": true,
       "media": true,
@@ -49,8 +49,8 @@
       "footer": true
     },
     "sectionsOrder": [
-      "hero",
-      "about",
+      "Intro",
+      "About Me",
       "projects",
       "currentProject",
       "media",
@@ -60,7 +60,7 @@
       "footer"
     ]
   },
-  "hero": {
+  "Introero": {
     "title": "Hi — I'm Tahmid Ashfaque",
     "subtitle": "Designing elegant creative projects • Creative Designer & Student",
     "backgroundType": "gradient",
@@ -79,7 +79,7 @@
       }
     ]
   },
-  "about": {
+  "About Me": {
     "bio": "I'm a creative professional at the intersection of design, technology, and communication. As a driven O'Level candidate, I pair my academic pursuits with hands-on experience in bringing ideas to life. [COMPLETE THIS BIO]",
     "skills": [
       {
