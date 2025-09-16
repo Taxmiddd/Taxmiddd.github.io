@@ -27,8 +27,6 @@
         "text": "#333333",
         "textMuted": "#94a3b8",
         "border": "#1e293b"
-      },
-
       }
     },
     "fontHeading": "Playfair Display",
@@ -82,7 +80,7 @@
     ]
   },
   "about": {
-    "bio": "I'm a creative professional at the intersection of design, technology, and communication. As a driven O'Level candidate, I pair my academic pursuits with hands-on experience in bringing ideas to life in the digital space. I am passionate about using my skills to help organizations grow their digital footprint and connect with their audience meaningfully. I am currently open to freelance projects and connecting with professionals in the tech and creative industries.",
+    "bio": "I'm a creative professional at the intersection of design, technology, and communication. As a driven O'Level candidate, I pair my academic pursuits with hands-on experience in bringing ideas to life. [COMPLETE THIS BIO]",
     "skills": [
       {
         "name": "Adobe Photoshop",
@@ -114,15 +112,15 @@
         "institution": "Disclossed",
         "degree": "Currently doing O Levels",
         "period": "Present",
-        "description": " Curerently Focusing on Advanced maths, Chemistry, Physics and Computer Science "
+        "description": "Currently focusing on Advanced maths, Chemistry, Physics and Computer Science."
       }
     ],
     "experience": [
       {
         "company": "International Global Affairs Council",
-        "role": "Head of Creative Desing & Media",
+        "role": "Head of Creative Design & Media",
         "period": "2023 - Present",
-        "description": "As the Head of Creative Design & Media at the International Global Affairs Council (IGAC), I lead the organization's digital strategy. This role involves managing our online presence across all platforms, spearheading media campaigns, and overseeing the physical logistics for large-scale, successful youth conferences like Model United Nations and Business Summits."
+        "description": "As the Head of Creative Design & Media at the International Global Affairs Council (IGAC), I lead the organization's digital strategy. This role involves managing our online presence, overseeing creative projects, and collaborating with cross-functional teams to drive impactful results. [COMPLETE THIS DESCRIPTION]"
       }
     ],
     "downloadCV": true,
@@ -131,7 +129,7 @@
   "currentProject": {
     "title": "Interactive Portfolio Builder",
     "summary": "A drag-and-drop portfolio builder with real-time preview",
-    "description": "Currently developing an intuitive web application that allows users to create beautiful portfolio websites without coding. Features include real-time editing, multiple templates, and seamless deployment options.\n\nBuilt with modern web technologies including vanilla JavaScript, CSS Grid, and a component-based architecture. The project focuses on accessibility and performance while maintaining a delightful user experience.",
+    "description": "Currently developing an intuitive web application that allows users to create beautiful portfolio websites without coding. Features include real-time editing, multiple templates, and export options. [COMPLETE THIS DESCRIPTION]",
     "images": [
       "assets/images/projects/current-1.webp",
       "assets/images/projects/current-2.webp"
@@ -148,7 +146,7 @@
       "id": "elegant-landing",
       "title": "Elegant Landing Page",
       "summary": "A minimal, conversion-focused landing page template",
-      "description": "Designed and developed a clean, modern landing page template optimized for conversions. Features smooth animations, responsive design, and accessibility-first approach.\n\nBuilt with semantic HTML, CSS variables for easy theming, and vanilla JavaScript for interactions. The template includes multiple sections, contact forms, and is fully customizable through CSS custom properties.",
+      "description": "Designed and developed a clean, modern landing page template optimized for conversions. Features smooth animations, responsive design, and accessibility-first approach. Built using HTML, CSS, and JavaScript.",
       "images": [
         "assets/images/projects/landing-1.webp",
         "assets/images/projects/landing-2.webp"
@@ -163,7 +161,7 @@
       "id": "photo-gallery",
       "title": "Responsive Photo Gallery",
       "summary": "A performance-optimized gallery with lazy loading and lightbox",
-      "description": "Built a high-performance photo gallery featuring lazy loading, responsive images with srcset, and a smooth lightbox experience. Supports keyboard navigation and is fully accessible.\n\nImplemented advanced features like image preloading, WebP format support, and smooth transitions. The gallery adapts to different screen sizes and provides an optimal viewing experience across all devices.",
+      "description": "Built a high-performance photo gallery featuring lazy loading, responsive images with srcset, and a smooth lightbox experience. Supports keyboard navigation and is fully accessible. [COMPLETE THIS DESCRIPTION]",
       "images": [
         "assets/images/projects/gallery-1.webp",
         "assets/images/projects/gallery-2.webp"
@@ -178,7 +176,7 @@
       "id": "task-manager",
       "title": "Minimalist Task Manager",
       "summary": "A clean, distraction-free productivity app",
-      "description": "Developed a minimalist task management application focused on simplicity and productivity. Features include drag-and-drop organization, keyboard shortcuts, and local storage persistence.\n\nThe app emphasizes clean design and smooth interactions while maintaining high performance. Built without frameworks to keep the bundle size minimal and loading times fast.",
+      "description": "Developed a minimalist task management application focused on simplicity and productivity. Features include drag-and-drop organization, keyboard shortcuts, and local storage persistence. [COMPLETE THIS DESCRIPTION]",
       "images": [
         "assets/images/projects/tasks-1.webp"
       ],
