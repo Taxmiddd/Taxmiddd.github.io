@@ -1,22 +1,22 @@
 {
   "siteMeta": {
-    "siteTitle": "Your Name — Portfolio",
-    "tagline": "Creative developer crafting elegant digital experiences",
-    "author": "Your Name",
+    "siteTitle": "Taxmiddd — Portfolio",
+    "tagline": "Graphics Designer | Digital Media Manager | Creative Writer | Head of Creative Design & Media at IGAC",
+    "author": "Tahmid Ashfaque",
     "description": "Portfolio website showcasing web development projects, design work, and creative solutions.",
-    "email": "you@example.com",
+    "email": "ashfaquet874@gmail.com",
     "repo": "https://github.com/USERNAME/REPO",
     "social": {
-      "github": "https://github.com/USERNAME",
-      "linkedin": "",
-      "twitter": "",
-      "instagram": "",
-      "dribbble": "",
-      "behance": ""
+      "Github": "https://github.com/taxmiddd",
+      "Linkedin": "https://www.linkedin.com/in/taxmiddd/",
+      "X": "https://x.com/taxmiddd",
+      "Instagram": "https://www.instagram.com/taxmiddd/",
+      "Facebook": "https://www.facebook.com/taxmiddd/",
+      "Behance": "https://www.behance.net/taxmiddd"
     }
   },
   "theme": {
-    "activeTheme": "default",
+    "activeTheme": "midnight",
     "themes": {
       "default": {
         "primary": "#0f172a",
@@ -81,8 +81,8 @@
     ]
   },
   "hero": {
-    "title": "Hi — I'm Your Name",
-    "subtitle": "Designing elegant web experiences • Creative developer & student",
+    "title": "Hi — I'm Tahmid Ashfaque",
+    "subtitle": "Designing elegant creative projects • Creative Designer & Student",
     "backgroundType": "gradient",
     "backgroundImage": "assets/images/hero-bg.webp",
     "backgroundGradient": "linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)",
@@ -100,47 +100,47 @@
     ]
   },
   "about": {
-    "bio": "I'm a passionate web developer and designer with a love for creating beautiful, functional digital experiences. Currently studying aerospace engineering while building modern web applications. I believe great design should be both visually stunning and highly usable.\n\nWhen I'm not coding, you can find me exploring new design trends, contributing to open source projects, or working on creative side projects that push the boundaries of what's possible on the web.",
+    "bio": "I'm a creative professional at the intersection of design, technology, and communication. As a driven O'Level candidate, I pair my academic pursuits with hands-on experience in bringing ideas to life in the digital space. I am passionate about using my skills to help organizations grow their digital footprint and connect with their audience meaningfully. I am currently open to freelance projects and connecting with professionals in the tech and creative industries.",
     "skills": [
       {
-        "name": "HTML/CSS",
+        "name": "Adobe Photoshop",
         "level": "90"
       },
       {
-        "name": "JavaScript",
+        "name": "Adobe Illustrator",
         "level": "85"
       },
       {
-        "name": "React",
-        "level": "75"
+        "name": "Logo Design",
+        "level": "85"
       },
       {
-        "name": "Node.js",
-        "level": "70"
+        "name": "Event Management",
+        "level": "90"
       },
       {
-        "name": "UI/UX Design",
+        "name": "Digital Media Manager",
         "level": "80"
       },
       {
-        "name": "Python",
-        "level": "65"
+        "name": "Logistics",
+        "level": "90"
       }
     ],
     "education": [
       {
-        "institution": "University Name",
-        "degree": "Bachelor of Aerospace Engineering",
-        "period": "2022 - Present",
-        "description": "Focusing on computational methods and design optimization"
+        "institution": "Disclossed",
+        "degree": "Currently doing O Levels",
+        "period": "Present",
+        "description": " Curerently Focusing on Advanced maths, Chemistry, Physics and Computer Science "
       }
     ],
     "experience": [
       {
-        "company": "Freelance",
-        "role": "Web Developer",
+        "company": "International Global Affairs Council",
+        "role": "Head of Creative Desing & Media",
         "period": "2023 - Present",
-        "description": "Creating custom websites and web applications for local businesses and startups"
+        "description": "As the Head of Creative Design & Media at the International Global Affairs Council (IGAC), I lead the organization's digital strategy. This role involves managing our online presence across all platforms, spearheading media campaigns, and overseeing the physical logistics for large-scale, successful youth conferences like Model United Nations and Business Summits."
       }
     ],
     "downloadCV": true,
