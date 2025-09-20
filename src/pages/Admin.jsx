@@ -24,6 +24,12 @@ const Admin = () => {
   const [loginError, setLoginError] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showPasswordSetup, setShowPasswordSetup] = useState(false);
+  const [passwordSetupForm, setPasswordSetupForm] = useState({ 
+    email: '', 
+    password: '', 
+    confirmPassword: '' 
+  });
   const location = useLocation();
 
   const handleLogin = async (e) => {
@@ -34,7 +40,44 @@ const Admin = () => {
     const result = await login(loginForm.email, loginForm.password);
     
     if (!result.success) {
-      setLoginError(result.error);
+      if (result.requirePasswordSetup) {
+        setPasswordSetupForm({ ...passwordSetupForm, email: loginForm.email });
+        setShowPasswordSetup(true);
+      } else {
+        setLoginError(result.error);
+      }
+    }
+    
+    setLoginLoading(false);
+  };
+
+  const handlePasswordSetup = async (e) => {
+    e.preventDefault();
+    setLoginLoading(true);
+    setLoginError('');
+
+    try {
+      const response = await fetch('/api/auth/setup-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(passwordSetupForm)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error);
+      }
+
+      // Store token and user data
+      localStorage.setItem('auth_token', data.token);
+      
+      // Update auth context (simulate successful login)
+      const loginResult = await login(passwordSetupForm.email, passwordSetupForm.password);
+      
+      setShowPasswordSetup(false);
+    } catch (error) {
+      setLoginError(error.message);
     }
     
     setLoginLoading(false);
@@ -155,8 +198,112 @@ const Admin = () => {
     </div>
   );
 
-  // If not authenticated, show login form
+  // Password Setup Form Component
+  const PasswordSetupForm = () => (
+    <div className="min-h-screen flex items-center justify-center bg-background-primary py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="text-center">
+            <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mb-6">
+              <Settings className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-primary mb-2">Set Your Password</h2>
+            <p className="text-secondary">Secure your admin account with a strong password</p>
+          </div>
+
+          <form className="mt-8 space-y-6" onSubmit={handlePasswordSetup}>
+            <div>
+              <label htmlFor="setup-email" className="block text-sm font-medium text-secondary mb-2">
+                Email Address
+              </label>
+              <input
+                id="setup-email"
+                type="email"
+                disabled
+                value={passwordSetupForm.email}
+                className="appearance-none relative block w-full px-3 py-3 border border-border bg-background-tertiary text-muted rounded-lg sm:text-sm"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="setup-password" className="block text-sm font-medium text-secondary mb-2">
+                New Password
+              </label>
+              <input
+                id="setup-password"
+                type="password"
+                required
+                minLength={8}
+                value={passwordSetupForm.password}
+                onChange={(e) => setPasswordSetupForm({ ...passwordSetupForm, password: e.target.value })}
+                className="appearance-none relative block w-full px-3 py-3 border border-border placeholder-muted text-primary bg-background-secondary rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                placeholder="Enter a strong password (min 8 characters)"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="setup-confirm-password" className="block text-sm font-medium text-secondary mb-2">
+                Confirm Password
+              </label>
+              <input
+                id="setup-confirm-password"
+                type="password"
+                required
+                minLength={8}
+                value={passwordSetupForm.confirmPassword}
+                onChange={(e) => setPasswordSetupForm({ ...passwordSetupForm, confirmPassword: e.target.value })}
+                className="appearance-none relative block w-full px-3 py-3 border border-border placeholder-muted text-primary bg-background-secondary rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                placeholder="Confirm your password"
+              />
+            </div>
+
+            {loginError && (
+              <div className="text-red-400 text-sm bg-red-900 bg-opacity-20 border border-red-800 p-3 rounded-lg">
+                {loginError}
+              </div>
+            )}
+
+            <div>
+              <button
+                type="submit"
+                disabled={loginLoading}
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                {loginLoading ? (
+                  <div className="spinner"></div>
+                ) : (
+                  <>
+                    <Settings className="w-5 h-5 mr-2" />
+                    Set Password & Continue
+                  </>
+                )}
+              </button>
+            </div>
+
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={() => setShowPasswordSetup(false)}
+                className="text-muted hover:text-secondary transition-colors"
+              >
+                Back to Login
+              </button>
+            </div>
+          </form>
+        </motion.div>
+      </div>
+    </div>
+  );
+
+  // If not authenticated, show appropriate form
   if (!auth.isAuthenticated) {
+    if (showPasswordSetup) {
+      return <PasswordSetupForm />;
+    }
     return <LoginForm />;
   }
 

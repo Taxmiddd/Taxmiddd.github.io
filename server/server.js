@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 
 // Import our modules
 import db from './db.js';
-import { authenticate, authorize, loginUser, canAccess } from './auth.js';
+import { authenticate, authorize, loginUser, setUserPassword, canAccess } from './auth.js';
 import { generateSignedUrl, generateCVSignedUrl, generateMediaSignedUrl, handleSignedUrl } from './signedUrl.js';
 import { upload, processUploadedFile, deleteUploadedFile } from './uploads.js';
 
@@ -140,22 +140,108 @@ app.post('/api/auth/login', async (req, res) => {
       return res.status(400).json({ error: 'Please enter a valid email address' });
     }
     
-    const { user, token } = await loginUser(email.trim(), password);
+    const result = await loginUser(email.trim(), password);
     
-    console.log('Login successful for:', user.email);
+    console.log('Login attempt result:', { email: result.user?.email, requirePasswordSetup: result.requirePasswordSetup });
+    
+    if (result.requirePasswordSetup) {
+      return res.json({
+        requirePasswordSetup: true,
+        user: {
+          id: result.user.id,
+          email: result.user.email,
+          role: result.user.role
+        }
+      });
+    }
     
     res.json({
-      token,
+      token: result.token,
       user: {
-        id: user.id,
-        email: user.email,
-        role: user.role,
-        lastLogin: user.lastLogin
-      }
+        id: result.user.id,
+        email: result.user.email,
+        role: result.user.role,
+        lastLogin: result.user.lastLogin,
+        passwordSet: result.user.passwordSet
+      },
+      requirePasswordChange: result.requirePasswordChange
     });
   } catch (error) {
     console.error('Login endpoint error:', error);
     res.status(401).json({ error: error.message });
+  }
+});
+
+// Set up password for first time (no authentication required)
+app.post('/api/auth/setup-password', async (req, res) => {
+  try {
+    const { email, password, confirmPassword } = req.body;
+    
+    if (!email || !password || !confirmPassword) {
+      return res.status(400).json({ error: 'Email, password, and confirmation are required' });
+    }
+    
+    if (password !== confirmPassword) {
+      return res.status(400).json({ error: 'Passwords do not match' });
+    }
+    
+    if (password.length < 8) {
+      return res.status(400).json({ error: 'Password must be at least 8 characters long' });
+    }
+    
+    // Verify this is the owner user and password is not set
+    const user = await db.getUserWithPassword(email);
+    if (!user || user.role !== 'owner' || user.passwordSet) {
+      return res.status(403).json({ error: 'Invalid request' });
+    }
+    
+    const result = await setUserPassword(email, password);
+    
+    // Now log them in
+    const loginResult = await loginUser(email, password);
+    
+    res.json({
+      message: 'Password set successfully',
+      token: loginResult.token,
+      user: {
+        id: loginResult.user.id,
+        email: loginResult.user.email,
+        role: loginResult.user.role,
+        passwordSet: true
+      }
+    });
+  } catch (error) {
+    console.error('Password setup error:', error);
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Change password (authentication required)
+app.post('/api/auth/change-password', authenticate, async (req, res) => {
+  try {
+    const { currentPassword, newPassword, confirmPassword } = req.body;
+    
+    if (!newPassword || !confirmPassword) {
+      return res.status(400).json({ error: 'New password and confirmation are required' });
+    }
+    
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({ error: 'Passwords do not match' });
+    }
+    
+    if (newPassword.length < 8) {
+      return res.status(400).json({ error: 'Password must be at least 8 characters long' });
+    }
+    
+    const result = await setUserPassword(req.user.email, newPassword, currentPassword);
+    
+    res.json({
+      message: 'Password changed successfully',
+      user: result.user
+    });
+  } catch (error) {
+    console.error('Password change error:', error);
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -167,7 +253,9 @@ app.get('/api/auth/me', authenticate, async (req, res) => {
       id: user.id,
       email: user.email,
       role: user.role,
-      lastLogin: user.lastLogin
+      lastLogin: user.lastLogin,
+      passwordSet: user.passwordSet,
+      requirePasswordChange: user.requirePasswordChange
     });
   } catch (error) {
     res.status(500).json({ error: 'Failed to get user info' });

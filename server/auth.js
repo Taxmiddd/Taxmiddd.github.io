@@ -86,35 +86,91 @@ export function authorize(requiredRole) {
   };
 }
 
-// Login user (simplified for demo)
+// Login user with password authentication
 export async function loginUser(email, password = '') {
   try {
-    // For demo purposes, accept any email but give special treatment to owner
-    let user = await db.getUser(email);
+    // Get user with password
+    let user = await db.getUserWithPassword(email);
     
     if (!user) {
-      // Auto-create user
-      const role = email === 'ashfaquet874@gmail.com' ? 'owner' : 'viewer';
-      user = await db.createUser({
-        email,
-        role
-      });
-      console.log(`Created new user: ${email} with role: ${role}`);
+      // Auto-create user only for owner email
+      if (email === 'ashfaquet874@gmail.com') {
+        user = await db.createUser({
+          email,
+          role: 'owner'
+        });
+        console.log(`Created owner user: ${email}`);
+      } else {
+        throw new Error('User not found. Please contact the administrator.');
+      }
+    }
+
+    // Check password if user has one set
+    if (user.passwordSet && user.password) {
+      if (!password) {
+        throw new Error('Password is required');
+      }
+      
+      const isValidPassword = await comparePassword(password, user.password);
+      if (!isValidPassword) {
+        throw new Error('Invalid password');
+      }
+    } else if (user.role === 'owner' && !user.passwordSet) {
+      // Owner needs to set password on first login
+      return {
+        user: { ...user, password: undefined },
+        token: null,
+        requirePasswordSetup: true
+      };
+    } else if (password && !user.passwordSet) {
+      // User provided password but doesn't have one set - this is suspicious
+      throw new Error('Invalid credentials');
     }
 
     // Update last login
     await db.updateUser(email, { lastLogin: new Date().toISOString() });
     
-    // Fetch updated user
-    user = await db.getUser(email);
-    
+    // Generate token
     const token = generateToken(user);
     console.log(`User logged in: ${email}, role: ${user.role}`);
     
-    return { user, token };
+    return { 
+      user: { ...user, password: undefined }, // Never send password to client
+      token,
+      requirePasswordChange: user.requirePasswordChange
+    };
   } catch (error) {
     console.error('Login error:', error);
-    throw new Error('Login failed: ' + error.message);
+    throw error;
+  }
+}
+
+// Set user password (for first-time setup or password change)
+export async function setUserPassword(email, newPassword, currentPassword = null) {
+  try {
+    const user = await db.getUserWithPassword(email);
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    // If user has existing password, verify current password
+    if (user.passwordSet && user.password && currentPassword) {
+      const isValidCurrentPassword = await comparePassword(currentPassword, user.password);
+      if (!isValidCurrentPassword) {
+        throw new Error('Current password is incorrect');
+      }
+    }
+
+    // Hash new password
+    const hashedPassword = await hashPassword(newPassword);
+    
+    // Update user password
+    const updatedUser = await db.setUserPassword(email, hashedPassword);
+    
+    return { success: true, user: { ...updatedUser, password: undefined } };
+  } catch (error) {
+    console.error('Set password error:', error);
+    throw error;
   }
 }
 

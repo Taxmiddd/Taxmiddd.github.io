@@ -116,8 +116,20 @@ function App() {
   const login = async (email, password) => {
     try {
       const response = await axios.post('/api/auth/login', { email, password });
-      const { token, user } = response.data;
+      const data = response.data;
 
+      // Handle password setup requirement
+      if (data.requirePasswordSetup) {
+        return {
+          success: false,
+          requirePasswordSetup: true,
+          user: data.user
+        };
+      }
+
+      // Normal login flow
+      const { token, user } = data;
+      
       localStorage.setItem('auth_token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
@@ -128,7 +140,7 @@ function App() {
         loading: false
       });
 
-      return { success: true };
+      return { success: true, user };
     } catch (error) {
       return { 
         success: false, 

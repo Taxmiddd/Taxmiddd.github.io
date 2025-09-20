@@ -5,6 +5,7 @@ import { AuthContext, ThemeContext } from '../App';
 import ProjectForm from './ProjectForm';
 import CVViewer from './CVViewer';
 import ThemeCustomizer from './ThemeCustomizer';
+import PasswordManager from './PasswordManager';
 import { 
   Plus, 
   Edit, 
@@ -719,12 +720,49 @@ const MediaSection = ({ showMessage }) => {
 
 // Settings Section
 const SettingsSection = ({ showMessage }) => {
+  const [activeTab, setActiveTab] = useState('password');
+
+  const tabs = [
+    { id: 'password', name: 'Password & Security', icon: Settings },
+    { id: 'account', name: 'Account Settings', icon: Users },
+  ];
+
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Settings</h1>
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <p className="text-gray-600">Settings panel coming soon...</p>
+    <div className="max-w-6xl mx-auto">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-primary">Settings</h1>
+        <p className="text-secondary">Manage your account and security settings</p>
       </div>
+
+      {/* Tabs */}
+      <div className="border-b border-border mb-8">
+        <nav className="-mb-px flex space-x-8">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`py-2 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 ${
+                activeTab === tab.id
+                  ? 'border-primary-500 text-primary-400'
+                  : 'border-transparent text-muted hover:text-secondary hover:border-border-light'
+              }`}
+            >
+              <tab.icon className="w-4 h-4" />
+              <span>{tab.name}</span>
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      {/* Tab Content */}
+      {activeTab === 'password' && <PasswordManager />}
+      
+      {activeTab === 'account' && (
+        <div className="bg-background-secondary rounded-xl border border-border p-6">
+          <h2 className="text-xl font-semibold text-primary mb-4">Account Settings</h2>
+          <p className="text-muted">Additional account settings coming soon...</p>
+        </div>
+      )}
     </div>
   );
 };
