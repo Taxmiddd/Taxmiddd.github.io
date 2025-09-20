@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "title": "Creative Graphics Designer",
+    "subtitle": "Bringing ideas to life through innovative digital design",
+    "description": "Welcome to my portfolio. I specialize in creating stunning visual experiences that communicate your brand's story effectively."
+  },
+  "about": {
+    "title": "About Me",
+    "content": "I am a passionate graphics designer with years of experience in creating compelling visual content. My expertise spans across branding, digital media, and creative design solutions.",
+    "skills": [
+      "Brand Design",
+      "Digital Media",
+      "UI/UX Design",
+      "Print Design"
+    ]
+  },
+  "services": {
+    "title": "Services & Pricing",
+    "items": []
+  },
+  "cv": {
+    "filename": null,
+    "uploadedAt": null
+  }
+}

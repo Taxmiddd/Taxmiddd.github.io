@@ -34,6 +34,17 @@ module.exports = {
         background: {
           primary: 'var(--color-bg-primary)',
           secondary: 'var(--color-bg-secondary)',
+          tertiary: 'var(--color-bg-tertiary)',
+        },
+        text: {
+          primary: 'var(--color-text-primary)',
+          secondary: 'var(--color-text-secondary)',
+          muted: 'var(--color-text-muted)',
+          accent: 'var(--color-text-accent)',
+        },
+        border: {
+          DEFAULT: 'var(--color-border)',
+          light: 'var(--color-border-light)',
         }
       },
       fontFamily: {

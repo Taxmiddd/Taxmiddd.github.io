@@ -127,23 +127,34 @@ app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     
+    console.log('Login attempt:', { email, hasPassword: !!password });
+    
     // For demo purposes, we'll allow login with just email
-    // In production, implement proper OAuth or password authentication
-    if (!email) {
-      return res.status(400).json({ error: 'Email required' });
+    if (!email || !email.trim()) {
+      return res.status(400).json({ error: 'Email is required' });
     }
     
-    const { user, token } = await loginUser(email);
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Please enter a valid email address' });
+    }
+    
+    const { user, token } = await loginUser(email.trim(), password);
+    
+    console.log('Login successful for:', user.email);
     
     res.json({
       token,
       user: {
         id: user.id,
         email: user.email,
-        role: user.role
+        role: user.role,
+        lastLogin: user.lastLogin
       }
     });
   } catch (error) {
+    console.error('Login endpoint error:', error);
     res.status(401).json({ error: error.message });
   }
 });

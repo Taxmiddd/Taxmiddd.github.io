@@ -62,7 +62,7 @@ const Admin = () => {
 
   // Login Form Component
   const LoginForm = () => (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-background-primary py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -73,13 +73,13 @@ const Admin = () => {
             <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mb-6">
               <LogIn className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Admin Login</h2>
-            <p className="text-gray-600">Sign in to manage your portfolio</p>
+            <h2 className="text-3xl font-bold text-primary mb-2">Admin Login</h2>
+            <p className="text-secondary">Sign in to manage your portfolio</p>
           </div>
 
           <form className="mt-8 space-y-6" onSubmit={handleLogin}>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-secondary mb-2">
                 Email Address
               </label>
               <input
@@ -90,13 +90,13 @@ const Admin = () => {
                 required
                 value={loginForm.email}
                 onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
-                className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="Enter your email"
+                className="appearance-none relative block w-full px-3 py-3 border border-border placeholder-muted text-primary bg-background-secondary rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+                placeholder="Enter your email (try: ashfaquet874@gmail.com)"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-secondary mb-2">
                 Password (Optional for demo)
               </label>
               <input
@@ -106,13 +106,13 @@ const Admin = () => {
                 autoComplete="current-password"
                 value={loginForm.password}
                 onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
-                className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="Enter your password (optional)"
+                className="appearance-none relative block w-full px-3 py-3 border border-border placeholder-muted text-primary bg-background-secondary rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+                placeholder="Leave blank for demo"
               />
             </div>
 
             {loginError && (
-              <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">
+              <div className="text-red-400 text-sm bg-red-900 bg-opacity-20 border border-red-800 p-3 rounded-lg">
                 {loginError}
               </div>
             )}
@@ -135,8 +135,8 @@ const Admin = () => {
             </div>
 
             <div className="text-center">
-              <p className="text-sm text-gray-600">
-                Demo: Use <code className="bg-gray-100 px-2 py-1 rounded">ashfaquet874@gmail.com</code> for owner access
+              <p className="text-sm text-muted">
+                Demo: Use <code className="bg-background-tertiary text-primary px-2 py-1 rounded">ashfaquet874@gmail.com</code> for owner access
               </p>
             </div>
           </form>

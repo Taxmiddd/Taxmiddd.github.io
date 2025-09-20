@@ -28,10 +28,10 @@ const defaultUsers = [
 ];
 const defaultSettings = {
   theme: {
-    primaryColor: '#3B82F6',
-    secondaryColor: '#8B5CF6',
-    backgroundPrimary: '#FFFFFF',
-    backgroundSecondary: '#F8FAFC',
+    primaryColor: '#10b981',
+    secondaryColor: '#8b5cf6',
+    backgroundPrimary: '#0f172a',
+    backgroundSecondary: '#1e293b',
     fontPrimary: 'Inter, sans-serif',
     fontSecondary: 'Inter, sans-serif'
   },

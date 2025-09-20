@@ -25,12 +25,12 @@ const Hero = ({ content, onEdit, isEditing = false }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary via-background-secondary to-primary-50 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background-primary via-background-secondary to-background-tertiary overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-40 left-1/2 transform -translate-x-1/2 w-60 h-60 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-500 rounded-full mix-blend-screen filter blur-xl opacity-10 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-500 rounded-full mix-blend-screen filter blur-xl opacity-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-40 left-1/2 transform -translate-x-1/2 w-60 h-60 bg-primary-400 rounded-full mix-blend-screen filter blur-xl opacity-5 animate-pulse" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -43,9 +43,9 @@ const Hero = ({ content, onEdit, isEditing = false }) => {
           {/* Title */}
           <motion.h1 
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight"
           >
-            <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
               {content.title}
             </span>
           </motion.h1>
@@ -53,7 +53,7 @@ const Hero = ({ content, onEdit, isEditing = false }) => {
           {/* Subtitle */}
           <motion.p 
             variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-600 mb-8 font-light"
+            className="text-lg sm:text-xl md:text-2xl text-secondary mb-8 font-light"
           >
             {content.subtitle}
           </motion.p>
@@ -61,7 +61,7 @@ const Hero = ({ content, onEdit, isEditing = false }) => {
           {/* Description */}
           <motion.p 
             variants={itemVariants}
-            className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg text-muted mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           >
             {content.description}
           </motion.p>
@@ -80,7 +80,7 @@ const Hero = ({ content, onEdit, isEditing = false }) => {
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <button className="group inline-flex items-center px-8 py-4 bg-white hover:bg-gray-50 text-gray-900 font-semibold rounded-xl shadow-lg hover:shadow-xl border border-gray-200 transition-all duration-300 transform hover:scale-105">
+            <button className="group inline-flex items-center px-8 py-4 bg-background-secondary hover:bg-background-tertiary text-primary font-semibold rounded-xl shadow-lg hover:shadow-xl border border-border transition-all duration-300 transform hover:scale-105">
               <Download className="w-5 h-5 mr-2" />
               Download CV
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -90,12 +90,12 @@ const Hero = ({ content, onEdit, isEditing = false }) => {
           {/* Scroll indicator */}
           <motion.div 
             variants={itemVariants}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
           >
             <div className="flex flex-col items-center">
-              <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
-              <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
+              <span className="text-sm text-muted mb-2">Scroll to explore</span>
+              <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center">
+                <div className="w-1 h-3 bg-primary-400 rounded-full mt-2 animate-bounce"></div>
               </div>
             </div>
           </motion.div>

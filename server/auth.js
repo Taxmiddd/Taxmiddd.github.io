@@ -86,25 +86,34 @@ export function authorize(requiredRole) {
   };
 }
 
-// Login user (for Google OAuth or manual login)
-export async function loginUser(email, role = 'viewer') {
+// Login user (simplified for demo)
+export async function loginUser(email, password = '') {
   try {
+    // For demo purposes, accept any email but give special treatment to owner
     let user = await db.getUser(email);
     
     if (!user) {
-      // Auto-create user with viewer role
+      // Auto-create user
+      const role = email === 'ashfaquet874@gmail.com' ? 'owner' : 'viewer';
       user = await db.createUser({
         email,
-        role: email === 'ashfaquet874@gmail.com' ? 'owner' : role
+        role
       });
+      console.log(`Created new user: ${email} with role: ${role}`);
     }
 
     // Update last login
     await db.updateUser(email, { lastLogin: new Date().toISOString() });
-
+    
+    // Fetch updated user
+    user = await db.getUser(email);
+    
     const token = generateToken(user);
+    console.log(`User logged in: ${email}, role: ${user.role}`);
+    
     return { user, token };
   } catch (error) {
+    console.error('Login error:', error);
     throw new Error('Login failed: ' + error.message);
   }
 }

@@ -9,7 +9,8 @@
     "client": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node server/server.js"
+    "start": "node start.js && concurrently \"npm run server\" \"npm run client\"",
+    "quick-start": "node start.js && npm run dev"
   },
   "dependencies": {
     "express": "^4.18.2",

@@ -1,0 +1,12 @@
+{
+  "theme": {
+    "primaryColor": "#10b981",
+    "secondaryColor": "#8b5cf6",
+    "backgroundPrimary": "#0f172a",
+    "backgroundSecondary": "#1e293b",
+    "fontPrimary": "Inter, sans-serif",
+    "fontSecondary": "Inter, sans-serif"
+  },
+  "siteTitle": "Graphics Designer Portfolio",
+  "siteDescription": "Professional graphics designer showcasing creative digital media work"
+}

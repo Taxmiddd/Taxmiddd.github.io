@@ -34,7 +34,7 @@ const Header = ({ siteContent }) => {
   };
 
   return (
-    <header className="bg-background-primary shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <header className="bg-background-primary shadow-lg border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -47,7 +47,7 @@ const Header = ({ siteContent }) => {
               <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">GD</span>
               </div>
-              <span className="font-bold text-xl text-gray-900 group-hover:text-primary-600 transition-colors">
+              <span className="font-bold text-xl text-primary group-hover:text-primary-400 transition-colors">
                 Portfolio
               </span>
             </Link>
@@ -62,8 +62,8 @@ const Header = ({ siteContent }) => {
                 onClick={() => handleNavClick(item.href)}
                 className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
                   isActive(item.href)
-                    ? 'text-primary-600 bg-primary-50'
-                    : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
+                    ? 'text-primary-400 bg-primary-900 bg-opacity-20'
+                    : 'text-secondary hover:text-primary-400 hover:bg-background-secondary'
                 }`}
               >
                 {item.name}
